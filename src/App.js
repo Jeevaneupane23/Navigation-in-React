@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import Links from "./Components/Links";
+import useNavigationContext from "./hooks/custom-hooks-navigation";
+import SideBar from "./Components/SideBar";
+import HomePage from "./Pages/Home";
+import ContactPage from "./Pages/Contact";
+import AboutPage from "./Pages/About";
+import Route from "./Components/Route";
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex gap-10">
+    <SideBar/>
+
+    <Route path='/'>
+      <HomePage/>
+    </Route>
+
+    <Route path='/contact'>
+      <ContactPage/>
+    </Route>
+
+    <Route path='/about'>
+      <AboutPage/>
+    </Route>
+      
+      
     </div>
   );
 }
